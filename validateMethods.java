@@ -1,7 +1,10 @@
+import java.util.Arrays;
 
+public  class validateMethods{
 
-public class validateMethods{
-  public boolean validateFellow(String name){
+static LogClass logger = new LogClass();
+
+  public static boolean validateFellow(String name){
     String[] fellows = {"Yaw","David"};
 
     for(String n : fellows)
@@ -12,50 +15,67 @@ public class validateMethods{
       return false;
   }
 
-  public boolean validateEIT(String name, String groupName, String projectName){
-    String[] project = {"Communication","Tech","Business"};
-    String[] groups = {"team1","team2"};
-    String[] names = {"kate","henry","rosslyn","edwin"};
-    boolean result = false;
+  public static boolean validateEIT(String name, String groupName, String projectName){
 
-    for (String p : project) {
-      if(p.equals(projectName)){
-        result = true;
-    }  else {
-      result = false;
-    }
-    }
+    /**TODO: loop to check the members already added to the groupName for projectName
+     * add these names to an array names for use in validation **/
 
-    for (String g : groups){
-      if(g.equals(groupName)){
-        result =  true;
-    } else {
-      result = false;
-    }
-    }
-
+    String[] names = {"kate","henry","roselyne","edwin"};
+   
     for (String n : names){
-      if(n.equals(name)) {
-        result = false;
-      }  else {
-        result = true;
+      if(n.equals(name))
+        return  false;
+      } 
+        return  true;
+  }
+     
+
+  public static boolean validateGroup(String name, String project){
+    /**TODO: use array data loaded from file for validation **/
+    
+    String[][] groups = {{"tech","COMMS","BUSINESS"},{"tech","team1","team2","team3","team4","team5"},
+			 {"comms","team1","team2","team3","team4","team5"},
+			 {"business","team1","team2","team3","team4","team5"}};
+    boolean r = true;
+			 
+    for(int i= 0; i < groups.length; i++){
+      for(int j = 0; j < groups[i].length; j++){
+	if(j == 0 ){
+	  if(groups[i][j].equals(project)){
+	    System.out.println("Found a project " +groups[i][j]);
+	    try{
+	     String[] tempArray = groups[i];
+	        duplicateCheckLoop:
+		for( String s : tempArray) {
+		System.out.println("s is : " + s +" and name is : " +name);
+		  if(s.equals(name)){
+		    r = true;
+		    break duplicateCheckLoop;
+		  } r = false;
+	        }
+	    }catch (Exception e) {
+	    //e.printStackTrace();
+	    logger.writeLog("validateGroup Method : " +e);
+	    } 
+	  }
+        }
       }
     }
-    return result;
-      
-  
-    }
     
-
-  public boolean validateGroup(String name, String project){
-    //if exists return false;
-    return true;
+   return r; //System.out.println("The array is " + Arrays.deepToString(groups));
   }
 
   public boolean checkSize(String group, int size){
    // if size < 2 or size > groupArray.length()
       return false;
     //else return true;
+  }
+
+  public static void main(String[] args){
+    for(String s : args){
+    boolean y = validateGroup("team2",s);
+    System.out.println("The array test" + y);
+    }
   }
 
 }
