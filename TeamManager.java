@@ -1,9 +1,11 @@
-package teammanager;
 
 import java.util.Scanner;
 
 public class TeamManager {
 
+//thb
+    static validateMethods validate = new validateMethods();
+    static LogClass logger = new LogClass();
     static String name = "Yaw";
     static int project_id = 1;
     static String group_name = "master";
@@ -11,11 +13,33 @@ public class TeamManager {
 
     public static void main(String[] args) {
         System.out.println("THANK YOU FOR LOGGING IN. \n\n Please input your name\n");
+        
+        
 
-//        if(name.exists)
-//        {
-//            
-//        }
+        Scanner input = new Scanner(System.in);
+        String fellow_name = input.nextLine();
+        //boolean x = validate.validateFellow("tet");
+       // System.out.println("" + x);
+        
+        
+        
+       // System.out.println("Welcome " +fellow_name+" to EIT Generator, please proceed");
+
+        if (validate.validateFellow(fellow_name) == true) {
+            System.out.println("Welcome " +fellow_name+" to EIT Generator, please proceed");
+            logger.writeLog(fellow_name, "This user has logged in.");
+            
+             System.out.println("\n\nAdded to log....\n\n");
+            
+        }
+            else
+            {
+                System.out.println("You are not authorised! Sorry. ");
+                System.exit(1);
+                
+            }
+
+        
         System.out.println("CHOOSE PROJECT: \n Press \n 1. TECH \n 2.) COMMS \n 3.) BIZ");
 
         try {
@@ -43,7 +67,7 @@ public class TeamManager {
         try {
             Scanner in = new Scanner(System.in);
             int choice1 = in.nextInt();
-            
+
             if (choice1 == 1) {
                 groupGeneration grouper = new groupGeneration();
                 System.out.println("1");
@@ -51,11 +75,19 @@ public class TeamManager {
             }
 
             if (choice1 == 2) {
-                addEIT(name, project_id, group_name);
+                groupGeneration grouper = new groupGeneration();
+                System.out.println("Enter the EITs you would like to enter.");
+                grouper.createGroup();
             }
             if (choice1 == 3) {
-            } else {
                 
+                 System.out.println("GROUP I: \n 1.)Mary  \n 1.)Kate  \n 1.)Henry  \n 1.)Mukeli  \n 1.)Samuel");
+                 System.out.println("\n\nGROUP II: \n 1.)Tsatsu  \n 1.)Tabby  \n 1.)eric  \n 1.)Kayode  \n 1.)Patience");
+                  
+                
+                
+            } else {
+
             }
 
         } catch (NumberFormatException e) {

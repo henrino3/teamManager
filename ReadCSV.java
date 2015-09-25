@@ -1,5 +1,3 @@
-package teammanager;
-
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -15,7 +13,7 @@ public class ReadCSV {
 		
 		try {
 			String readLine;
-			readBuffer = new BufferedReader(new FileReader("/home/makena/Desktop/"+name1+".csv"));
+			readBuffer = new BufferedReader(new FileReader("/home/makena/Desktop/test.csv"));
 			
 			// How to read file in java line by line?
 			while ((readLine = readBuffer.readLine()) != null) {

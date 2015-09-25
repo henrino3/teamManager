@@ -1,4 +1,3 @@
-package teammanager;
 
 
 import java.util.logging.Logger;

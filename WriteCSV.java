@@ -1,4 +1,3 @@
-package teammanager;
 
 
 import java.io.FileWriter;
@@ -18,21 +17,7 @@ public class WriteCSV
         writer.append(name);
         writer.append(',');
         
-//        writer.append("Tsatsu");
-//        writer.append(',');
-//
-//        writer.append("Catherine");
-//        writer.append(',');
-//        writer.append("Henry M.");
-//            writer.append(',');
-//            
-//        writer.append("Henry K.");
-//        writer.append(',');
-//        writer.append("Gbevu");
-//        writer.append('\n');
-//            
-        //generate whatever data you want
-            
+
         writer.flush();
         writer.close();
     }
