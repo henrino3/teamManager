@@ -8,6 +8,10 @@ import java.util.ArrayList;
 public class ReadCSV {
 	public static void main(String[] args) {
 		
+		readFile();
+	}
+
+	public static void readFile() {
 		BufferedReader readBuffer = null;
 		
 		try {

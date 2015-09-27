@@ -1,5 +1,6 @@
 
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -7,28 +8,23 @@ public class WriteCSV
 {
    public static void main(String [] args)
    {
-       generateCsvFile("/home/gbevu/Desktop/test.csv"); 
+       generateCsvFile("Tech", "Roseline", '5'); 
    }
    
-   private static void generateCsvFile(String sFileName)
+   private static void generateCsvFile(String group, String name, char proj_ID)
    {
     try
     {
-        FileWriter writer = new FileWriter(sFileName, true);
+        File file = new File("/home/gbevu/Desktop/test.csv");
+	        
+        FileWriter writer = new FileWriter(file, true);
          
-        writer.append("Roseline");
+        writer.append(group);
         writer.append(',');
-        writer.append("Tsatsu");
+        writer.append(name);
         writer.append(',');
+        writer.append((char) proj_ID);
 
-        writer.append("Catherine");
-        writer.append(',');
-        writer.append("Henry M.");
-            writer.append(',');
-            
-        writer.append("Henry K.");
-        writer.append(',');
-        writer.append("Gbevu");
         writer.append('\n');
             
         //generate whatever data you want
