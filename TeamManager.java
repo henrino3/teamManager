@@ -1,3 +1,5 @@
+package teammanager;
+
 
 import java.util.Scanner;
 
@@ -12,7 +14,7 @@ public class TeamManager {
     static int choice;
 
     public static void main(String[] args) {
-        System.out.println("THANK YOU FOR LOGGING IN. \n\n Please input your name\n");
+        System.out.println("THANK YOU FOR LOGGING IN. \n\n Please input your name for verification.\n");
         
         
 
@@ -26,7 +28,7 @@ public class TeamManager {
        // System.out.println("Welcome " +fellow_name+" to EIT Generator, please proceed");
 
         if (validate.validateFellow(fellow_name) == true) {
-            System.out.println("Welcome " +fellow_name+" to EIT Generator, please proceed");
+            System.out.println("Welcome " +fellow_name+"\n This is EIT Team Manager.\n Please proceed");
             logger.writeLog(fellow_name, "This user has logged in.");
             
              System.out.println("\n\nAdded to log....\n\n");
@@ -76,8 +78,8 @@ public class TeamManager {
 
             if (choice1 == 2) {
                 groupGeneration grouper = new groupGeneration();
-                System.out.println("Enter the EITs you would like to enter.");
-                grouper.createGroup();
+                System.out.println("Which group would you like to enter a member.");
+               // grouper.createGroup();
             }
             if (choice1 == 3) {
                 
